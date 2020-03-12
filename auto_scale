@@ -1,0 +1,5 @@
+login vao mot instance trong group
+cai dat stress tool for test
+tren instance trong group thuc hien cau lenh sau
+stress -c 4 -t 300
+xem monitor tren autoscale group va activity history de xem qua trinh huy va tao instance moi trong autoscale group
