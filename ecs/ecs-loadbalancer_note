@@ -2,3 +2,4 @@ in host port mapping setting =0 for host port
 and in security group for instance, edit to allow connection from port range 32768–61000 or 49153–65535
 tuy theo example port ma 1 container dang chay
 tao create load balancer binh thuong,inter net facing or internal
+xem trong phan events cua service de xem duoc trang thai cua qua trinh update service
