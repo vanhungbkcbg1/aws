@@ -1,0 +1,14 @@
+Store Class
+Amazon S3 Standard offers high durability, high availability, low latency, and high
+performance object storage for general purpose use
+-> dat nhat
+
+Amazon S3 Standard – Infrequent Access
+offers the same durability, low
+latency, and high throughput as Amazon S3 Standard, but is designed for long-lived, less
+frequently accessed data
+-> dat thu 2
+Amazon S3 Reduced Redundancy Storage (RRS)
+dung cho data it truy cap, data co the tai tao duoc
+
+Amazon Glacier storage class

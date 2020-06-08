@@ -1,0 +1,177 @@
+{
+	"AWSTemplateFormatVersion" : "2010-09-09",
+	"Description":"Demo cloud formation",
+	"Parameters":{
+	    "InstanceTypeParameter":{
+			"Type":"String",
+			"Default":"t2.micro",
+			"AllowedValues":["t2.micro","m1.small","m1.large"],
+			"Description":"Please choose ec2 type"
+		}
+		
+	},
+	"Resources":{
+		"PrivateRouterTable": {
+			"Type": "AWS::EC2::RouteTable",
+			"Properties": {
+				"VpcId": "vpc-b0a98fd7",
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": "Private route cloud formation "
+					}
+				]
+			}
+
+		},
+		"PublicRouterTable": {
+			"Type": "AWS::EC2::RouteTable",
+			"Properties": {
+				"VpcId": "vpc-b0a98fd7",
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": "Public Route table"
+					}
+				]
+			}
+		},
+		"InternetGatewayRoute": {
+			"Type" : "AWS::EC2::Route",
+			"Properties" : {
+				"DestinationCidrBlock" : "0.0.0.0/0",
+				"GatewayId" : "igw-ff3c119b",
+				"RouteTableId" : {"Ref": "PublicRouterTable"}
+			},
+			"DependsOn": ["PublicRouterTable"]
+		},
+		"PublicSubnet": {
+			"Type": "AWS::EC2::Subnet",
+			"Properties": {
+				"CidrBlock": "172.31.16.0/20",
+				"MapPublicIpOnLaunch": true,
+				"VpcId": "vpc-b0a98fd7",
+				"AvailabilityZone": "ap-northeast-1a",
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": "Public Subnet"
+					}
+				]
+			}
+		},
+		"PublicSubnetRouteTableAssociation": {
+			"Type" : "AWS::EC2::SubnetRouteTableAssociation",
+			"Properties" : {
+				"RouteTableId" : {"Ref": "PublicRouterTable"},
+				"SubnetId" : {"Ref": "PublicSubnet"}
+			},
+			"DependsOn": ["PublicRouterTable","PublicSubnet"]
+		},
+		"PrivateSubnet": {
+			"Type": "AWS::EC2::Subnet",
+			"Properties": {
+				"CidrBlock": "172.31.0.0/20",
+				"MapPublicIpOnLaunch": true,
+				"VpcId": "vpc-b0a98fd7",
+				"AvailabilityZone": "ap-northeast-1a",
+				"Tags": [
+					{
+						"Key": "Name",
+						"Value": "Private Subnet"
+					}
+				]
+			}
+		},
+		"SubnetRouterAssociation": {
+			"Type" : "AWS::EC2::SubnetRouteTableAssociation",
+			"Properties" : {
+				"RouteTableId" : {"Ref": "PrivateRouterTable"},
+				"SubnetId" : {"Ref": "PrivateSubnet"}
+			},
+			"DependsOn": ["PrivateRouterTable","PrivateSubnet"]
+		},
+		"PrivateEc2Instance": {
+			"Type":"AWS::EC2::Instance",
+			"Properties":{
+				"InstanceType":{"Ref":"InstanceTypeParameter"},
+				"ImageId":"ami-0f310fced6141e627",
+				"KeyName":"tokyo",
+				"SecurityGroupIds":[{"Ref": "SecurityGroup"}],
+				"SubnetId":{"Ref": "PrivateSubnet"}
+			},
+			"DependsOn": ["SecurityGroup","PrivateSubnet"]
+		},
+		"PublicEc2Instance": {
+			"Type":"AWS::EC2::Instance",
+			"Properties":{
+				"InstanceType":{"Ref":"InstanceTypeParameter"},
+				"ImageId":"ami-0f310fced6141e627",
+				"KeyName":"tokyo",
+				"SecurityGroupIds":[{"Ref": "WebSecurityGroup"}],
+				"SubnetId":{"Ref": "PublicSubnet"},
+				"UserData": ""
+			},
+			"DependsOn": ["WebSecurityGroup","PrivateSubnet"]
+		},
+		"SecurityGroup":{
+			"Type" : "AWS::EC2::SecurityGroup",
+			"Properties" : {
+				"GroupDescription" : "Demo Security Group",
+				"GroupName" : "demo_sg",
+				"VpcId" : "vpc-b0a98fd7"
+			}
+		},
+		"WebSecurityGroup":{
+			"Type" : "AWS::EC2::SecurityGroup",
+			"Properties" : {
+				"GroupDescription" : "Demo Security Group",
+				"GroupName" : "SSH_sg",
+				"VpcId" : "vpc-b0a98fd7"
+			}
+		},
+		"InboundRule": {
+			"Type": "AWS::EC2::SecurityGroupIngress",
+			"Properties": {
+				"CidrIp" : "0.0.0.0/0",
+				"Description" : "Inbound rule: Allow only http and port 80",
+				"GroupId": {"Ref": "SecurityGroup"},
+				"FromPort" : "80",
+				"IpProtocol" : "tcp",
+				"ToPort" : "80"
+			},
+			"DependsOn": "SecurityGroup"
+		},
+		"PublicSSHInboundRule": {
+			"Type": "AWS::EC2::SecurityGroupIngress",
+			"Properties": {
+				"CidrIp" : "0.0.0.0/0",
+				"Description" : "Inbound rule: Allow SSH",
+				"GroupId": {"Ref": "WebSecurityGroup"},
+				"FromPort" : "22",
+				"IpProtocol" : "tcp",
+				"ToPort" : "22"
+			},
+			"DependsOn": "WebSecurityGroup"
+		},
+		"httpInboundRule": {
+			"Type": "AWS::EC2::SecurityGroupIngress",
+			"Properties": {
+				"CidrIp" : "0.0.0.0/0",
+				"Description" : "Inbound rule: Allow http port 80",
+				"GroupId": {"Ref": "WebSecurityGroup"},
+				"FromPort" : "80",
+				"IpProtocol" : "tcp",
+				"ToPort" : "80"
+			},
+			"DependsOn": "WebSecurityGroup"
+		}
+	},
+	"Outputs": {
+		"Region": {
+			"Value": {"Ref": "AWS::Region"},
+			"Description": "Current Region aws"
+		}
+	}
+
+}

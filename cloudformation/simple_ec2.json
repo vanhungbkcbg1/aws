@@ -1,0 +1,32 @@
+{
+	"AWSTemplateFormatVersion" : "2010-09-09",
+	"Description":"Demo cloudformation",
+	"Parameters":{
+	    "InstanceTypeParameter":{
+			"Type":"String",
+			"Default":"t2.micro",
+			"AllowedValues":["t2.micro","m1.small","m1.large"],
+			"Description":"Please choose ec2 type"
+		}
+		
+	},
+	"Resources":{
+		"Ec2Instance": {
+			"Type":"AWS::EC2::Instance",
+			"Properties":{
+				"InstanceType":{"Ref":"InstanceTypeParameter"},
+				"ImageId":"ami-0f310fced6141e627",
+				"KeyName":"tokyo",
+				"SecurityGroupIds":["sg-1489a369"],
+				"SubnetId":"subnet-71c12239"
+			}
+		}
+	},
+	"Outputs": {
+		"Region": {
+			"Value": {"Ref": "AWS::Region"},
+			"Description": "Current Region aws"
+		}
+	}
+
+}

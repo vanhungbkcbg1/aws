@@ -1,0 +1,30 @@
+user enter domain name in webrowser -> root DNS server -> Top Level domain server -> Name server -> IP -> nguoi dung
+
+trong moi DNS server se co mot zone file
+A zone file is a simple text file that contains the mappings between domain names and IP
+addresses.This is how a DNS server finally identifies which IP address should be contacted
+when a user requests a certain domain name
+
+Router 53
+trong moi zone file se co thong tin cua record set
+record set dinh nghia cach thuc mapping tu domain name to resource thong qua routing policy
+routing plolicy bao gom
+
+Simple– Use for a single resource that performs a given function for your domain, for example, a web server that serves content for the example.com website
+Latency routing policy: trafic to resource dua tren do tre gia resource va user
+Weighted: dua tren ti trong giua cac resource voi nhau
+Geolocation: dua tren vi tri cua nguoi dung voi cac resource nay
+
+Public host zone: xu li routing dns tu internet
+private xu li trong noi bo cua vpc
+
+
+qua trinh test weighted Route Policy khong phai no se hoat dong ngay IP1-IP2-IP1-IP2
+ma can phai co thoi gian,recommend la 60 s
+
+
+SOA la bat buoc
+MX la dns toi mail server
+RPT la convert tu IP to domain name
+
+

@@ -1,0 +1,39 @@
+{
+	"AWSTemplateFormatVersion" : "2010-09-09",
+	"Description":"Demo cloud formation",
+	"Parameters":{
+	    "InstanceTypeParameter":{
+			"Type":"String",
+			"Default":"t2.micro",
+			"AllowedValues":["t2.micro","m1.small","m1.large"],
+			"Description":"Please choose ec2 type"
+		},
+		"Subnet": {
+			"Type": "AWS::EC2::Subnet::Id",
+			"Description": "Choose Subnet"
+		},
+		"SecurityGroup": {
+			"Type": "AWS::EC2::SecurityGroup::GroupName"
+		}
+		
+	},
+	"Resources":{
+		"Ec2Instance": {
+			"Type":"AWS::EC2::Instance",
+			"Properties":{
+				"InstanceType":{"Ref":"InstanceTypeParameter"},
+				"ImageId":"ami-0f310fced6141e627",
+				"KeyName":"tokyo",
+				"SecurityGroups":[{"Ref": "SecurityGroup"}],
+				"SubnetId":{"Ref": "Subnet"}
+			}
+		}
+	},
+	"Outputs": {
+		"Region": {
+			"Value": {"Ref": "AWS::Region"},
+			"Description": "Current Region aws"
+		}
+	}
+
+}
