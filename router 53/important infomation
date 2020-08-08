@@ -27,4 +27,10 @@ SOA la bat buoc
 MX la dns toi mail server
 RPT la convert tu IP to domain name
 
+neu domain khong nhan thi fix nhu sau
+1. xem thong tin cua record NS cua domain hien tai
+2. xem thong tin cua registed domain ->click vao phan add or edit name server-> check xem thong tin o day giong voi o buoc 1 khong
+-> neu khong giong thi update theo thong tin o phan 1 roi click update
+
+
 
