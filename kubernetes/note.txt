@@ -1,0 +1,3 @@
+cluter: access duoc trong cluster,thuong ta se chay 1 pod trong cluster de access den cac service trong cluster
+nodeport: expose service toi cac node o cac port duoc chi dinh
+load balancer: create a loadbalancer va export toi port cua loadbalancer
