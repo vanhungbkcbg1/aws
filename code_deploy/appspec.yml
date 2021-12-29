@@ -1,0 +1,30 @@
+version: 0.0
+os: linux
+files:
+  #location to copy code to
+  - source: /
+    destination: /var/www/html/
+hooks:
+  # used to for store previous config,create backup
+  # You can use this event to store the previous configuration of your old install that you want to keep,
+  # decrypt files, and create a backup of the current version
+  BeforeInstall:
+    - location: deploy_scripts/before_install.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: deploy_scripts/after_install.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: deploy_scripts/application_start.sh
+      timeout: 120
+      runas: root
+  # script to stop application
+  #it is the stage for running any scripts that will stop your old application.
+  #For example, if you have a new version of an e-commerce web application, let’s say v.1,
+  #this event will allow you to disable v.0 and prepare the instance to receive a new version, which in this case is v.1
+  ApplicationStop:
+    - location: deploy_scripts/application_stop.sh
+      timeout: 120
+      runas: root
