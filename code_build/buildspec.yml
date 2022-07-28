@@ -1,0 +1,32 @@
+version: 0.2
+phases:
+  install:
+    #    install php
+    runtime-versions:
+      php: 8.1
+    commands:
+      - echo Nothing to install
+      - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+      - php composer-setup.php
+      - php -r "unlink('composer-setup.php');"
+      - php composer.phar self-update 1.10.10
+  pre_build:
+    #    install dependencies example: composer install
+    commands:
+      - echo pre-build
+      - php composer.phar install --no-interaction --no-progress
+  build:
+    #    run unit test here
+    commands:
+      - echo Build started on `date`
+  post_build:
+    #    notification build process
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - '**/*'
+  base-directory: ./
+  #  base-directory: ./app # all file inside app folder will be included in output artifact
+  name: build-artifact-name
+  discard-paths: no
