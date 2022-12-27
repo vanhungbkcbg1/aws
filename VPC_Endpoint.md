@@ -6,6 +6,6 @@ use to connect to S3 and Dynamodb
   - you need to have 1 public instance(bastion host) and 1 private instance
   - attacch to instance role  that has permission to access to s3
   - in vpc menu, choose **End point** and choose information as below
-   [image](./images/)
+   ![image](./images/)
 ## interface Endpoint
 use to connect to other services
