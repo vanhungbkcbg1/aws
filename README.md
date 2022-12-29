@@ -1,2 +1,2 @@
 # AWS document
-[SSH and BashtionHost](./ssh_and_bastion_host.md)
+[SSH and BastionHost](./ssh_and_bastion_host.md)
