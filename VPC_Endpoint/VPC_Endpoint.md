@@ -21,4 +21,5 @@ use to connect to other services
        `aws sqs list-queues --region ap-northeast-1 --endpoint-url https://sqs.ap-northeast-1.amazonaws.com`
 ## Private Link
 allow connect to application service inside VPC
+![private Link](./images/private_link.png)
 
