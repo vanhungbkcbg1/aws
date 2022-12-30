@@ -9,7 +9,7 @@ use to connect to S3 and Dynamodb
    ![image](./images/endpoint_1.png)
    ![image](./images/endpoint_2.png)
   - inside private instance we can use aws cli to connect to s3 
-## interface Endpoint
+## Interface Endpoint
 use to connect to other services
 ### Setup
   - we need to have 1 public instance and 1 private instance
@@ -19,4 +19,6 @@ use to connect to other services
     ![image1](./images/vpc_interface_2.png)
   - inside private instance we can use `aws cli` to connect to sqs  
        `aws sqs list-queues --region ap-northeast-1 --endpoint-url https://sqs.ap-northeast-1.amazonaws.com`
+## Private Link
+allow connect to application service inside VPC
 
