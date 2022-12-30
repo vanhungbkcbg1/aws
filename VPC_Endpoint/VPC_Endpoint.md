@@ -15,6 +15,8 @@ use to connect to other services
   - we need to have 1 public instance and 1 private instance
   - we also need to create role that have permission to access sqs and then attach it to private instance
   - in vpc menu, choose **Endpoint** and choose information as bellow
+    ![image1](./images/vpc_interface_1.png)
+    ![image1](./images/vpc_interface_2.png)
   - inside private instance we can use `aws cli` to connect to sqs  
        `aws sqs list-queues --region ap-northeast-1 --endpoint-url https://sqs.ap-northeast-1.amazonaws.com`
 
