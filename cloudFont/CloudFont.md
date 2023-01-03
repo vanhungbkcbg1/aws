@@ -15,4 +15,4 @@ signed url: restrict for individual files
 cookies: restrict for multi files
 
 #### security application load balancer using cloud font and secret manager architect
-[security](./images/)
+![security](./images/alb_cloudfont_secure.png)
