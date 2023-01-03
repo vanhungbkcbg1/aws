@@ -22,4 +22,9 @@ use to connect to other services
 ## Private Link
 allow connect to application service inside VPC
 ![private Link](./images/private_link.png)
+### Setup
+  - we need to have an network loadbalancer, and some instance that is attached to in VPC B
+  - we need to have 1 public instance and 1 private instance in VPC A
+  - create VPC endpoint service to create private link
+  - create vpc endpoint  in vpc A to vpc endpoint service above
 
