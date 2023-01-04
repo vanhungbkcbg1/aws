@@ -32,6 +32,6 @@ allow connect to application service inside VPC
     ![private link](./images/private_link_1.png)
     ![private link](./images/private_link_2.png)
     
-  - from private instance in vpc use **dns name of vpc endpoint** to **access to service inside VPC B**
+  - from private instance in **VPC A** use **dns name of vpc endpoint** to **access to service inside VPC B**
     
 
