@@ -26,10 +26,12 @@ allow connect to application service inside VPC
   - we need to have an internal network load balancer, and 1 private instance in VPC B
   - we need to have 1 public instance and 1 private instance in VPC A
   - create VPC endpoint service to create private link(copy service name, we will use this value to create vpc endpoint)
-  - create vpc endpoint in private subnet in vpc A to vpc endpoint service above
-    ![endpoint service 1](./images/endpoint_service_1.png)
+  - ![endpoint service 1](./images/endpoint_service_1.png)
     ![endpoint service 2](./images/endpoint_service_2.png)
-  - from private instance in vpc use **dns name of vpc endpoint** to **access to service inside VPC B**
-    ![private link](./images/private_link.png)
+  - create vpc endpoint in private subnet in vpc A to vpc endpoint service above
+    ![private link](./images/private_link_1.png)
     ![private link](./images/private_link_2.png)
+    
+  - from private instance in vpc use **dns name of vpc endpoint** to **access to service inside VPC B**
+    
 
