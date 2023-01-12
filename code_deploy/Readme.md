@@ -1,3 +1,8 @@
+## Note
+During a deployment, the CodeDeploy agent runs the scripts specified for ApplicationStop, BeforeBlockTraffic, and AfterBlockTraffic in the AppSpec file from the previous successful deployment. (All other scripts are run from the AppSpec file in the current deployment.) If one of these scripts contains an error and does not run successfully, the deployment can fail  
+  - **To fix this issue**: Use the CodeDeploy console to create a deployment. On the **Create deployment** page, under ApplicationStop lifecycle event failure, choose Don't fail the deployment to an instance if this lifecycle event on the instance fails. **see image below**
+![image](./images/deployment.png)
+
 #### create instance and role
 1. create instance profile with policy like this
 ````
