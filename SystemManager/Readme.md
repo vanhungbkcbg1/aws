@@ -10,5 +10,5 @@
   
 ## Private Link( connect to Private EC2 instance
   - in order to connect to private ec2 instance we have to create 3 vpc endpoint like image below
-     ![image](./images/ssm_vpc_endpoint.png)
+     ![image](./images/ssm_endpoint.png)
   
