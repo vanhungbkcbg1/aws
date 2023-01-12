@@ -9,6 +9,9 @@
   ![image](./images/session_manager.png)
   
 ## Private Link( connect to Private EC2 instance)
-  - in order to connect to private ec2 instance we have to create 3 vpc endpoint like image below
-     ![image](./images/ssm_endpoint.png)
+  - in order to connect to private ec2 instance we have to create vpc endpoint for 3 services like image below
+     - **com.amazonaws.ap-northeast-1.ssm**
+     - **com.amazonaws.ap-northeast-1.ssmmessages**
+     - **com.amazonaws.ap-northeast-1.ec2messages**	
+  ![image](./images/ssm_endpoint.png)
   
