@@ -9,3 +9,4 @@ Data keys are symmetric keys you can use to encrypt data, including large amount
 When AWS KMS generates data keys, it returns a plaintext data key for immediate use (optional) and an encrypted copy of the data key that **you can safely store with the data**. When you are ready to decrypt the data, you first ask AWS KMS to decrypt the encrypted data key.
 ## Key Policy
 Unless the key policy explicitly allows it, you cannot use IAM policies to allow access to a KMS key
+
