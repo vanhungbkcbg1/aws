@@ -9,4 +9,5 @@
    
 - Blocking public and cross-account access to buckets and objects through any public bucket or access point policies : is another aspect of Amazon S3 Block Public Access. This feature restricts both public access and cross-account access to S3 buckets and objects that is granted through bucket policies or access point policies. When this feature is enabled, any bucket policies or access point policies that you create will not allow public access or access from other AWS accounts, and you will need to explicitly grant access to specific AWS identities if you want them to be able to access the buckets and objects. You can enable this feature in the AWS Management Console, the AWS CLI, or the AWS SDK by turning on Amazon S3 Block Public Access at the account level or at the individual bucket level. This provides an even higher level of security for sensitive data stored in your S3 buckets by preventing unauthorized access from both the public and other AWS accounts.
   - anh huong toi all bucket policy va access point policy
-  - không cho public access, không cho từ account khác
+  - không cho public access, không cho access  từ account khác
+  - chi cho access cho tung aws user cu the
