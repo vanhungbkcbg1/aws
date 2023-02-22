@@ -32,3 +32,9 @@
     let results = client.scan(params).promise();
     return results;
   ````
+  ## Custom authorizer
+   we will use lambda for custom authorizer, lambda will  generate policy to determine that api should allow executed or not  
+   after user authenticated we will have a role of authenticated user, and base on that role we will have list permission of that user, and then we will generate policy for those permission and return it
+   base on this policy, api gateway will make decision to allow this request or not
+   ### database diagram for this case
+   [images](./images/api_permission.png)
