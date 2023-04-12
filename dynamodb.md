@@ -23,3 +23,6 @@ var params = {
 | you can use any attribute for partition key and sorted key in index            | Partion key must be the same with partiion key in base table        |
 | you can create index at the same time when you create a table or existing table| you only can create index at the same time when you create a table|
 | asynchronous with base table| synchronized with base table|
+
+## Update query
+  in update statement the key is required, so we need to know which key is used for update
