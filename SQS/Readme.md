@@ -9,7 +9,7 @@ khi mot message duoc consume nhieu lan nhung van that bai thi message nay can du
        chung ta can chu y toi tham so **Maximum receives**, tham so nay quy dinh message duoc consume toi ba bao nhieu lan truoc khi bi day vao dead letter queue
        ![images](./images/deadqueue.png)
      - Config lambda function  
-       lambda execution role can co cac quen sau khi dang ki la worker cho sqs
+       lambda execution role can co cac quen sau truoc khi dang ki la worker cho sqs
        - sqs:DeleteMessage
        - sqs:GetQueueAttributes
        - sqs:ReceiveMessage
