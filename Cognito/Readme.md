@@ -13,7 +13,7 @@
                                     - custom.role = normal, the role normalRole will be assigned to the user
   sample policy for adminRole and normalRole
   ````
-  // Admin Role -> allow call api using amplify
+  // admin role
   {
     "Version": "2012-10-17",
     "Statement": [
@@ -28,10 +28,9 @@
             ]
         }
     ]
-}
+  }
 
-  // normal Rolr -> block call api from amplify
-
+  // normal role
   {
     "Version": "2012-10-17",
     "Statement": [
@@ -46,6 +45,6 @@
             ]
         }
     ]
-}
+  }
   ````
   
