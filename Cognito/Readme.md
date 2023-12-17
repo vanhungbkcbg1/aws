@@ -37,7 +37,7 @@
     "Statement": [
         {
             "Sid": "Statement1",
-            "Effect": "Allow",
+            "Effect": "Deny",
             "Action": [
                 "execute-api:Invoke"
             ],
