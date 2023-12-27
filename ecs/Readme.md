@@ -10,3 +10,6 @@
 
 2. output from code build  
 ![image](./images/codebuild.png)
+
+## ImageDefinition file
+[Image Definition.json](https://docs.aws.amazon.com/codepipeline/latest/userguide/file-reference.html)
