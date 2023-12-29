@@ -14,5 +14,5 @@
 ## ImageDefinition file
 [Image Definition.json](https://docs.aws.amazon.com/codepipeline/latest/userguide/file-reference.html)
 
-## in case there is permission error with ECR please add this permission to the role which is being used to build image
+## in case there is permission error with ECR please add this policy to the role which is being used to build image
 **EC2InstanceProfileForImageBuilderECRContainerBuilds**
