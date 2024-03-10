@@ -1,3 +1,7 @@
+## Note
+1. **Task role**: Your Amazon ECS tasks can have an IAM role associated with them. The permissions granted in the IAM role are assumed by the containers running in the task
+2. **Task execution role**: The task execution role grants the Amazon ECS container and Fargate agents permission to make AWS API calls on your behalf: permission for pull image, send log to cloud watch, reference sensitive information from Secret manager ....
+
 ### CI, CD ecs
 #### when integrate between ecs and codepipeline only we need to change imageuri for image in container
 1. you need a cluster on ecs
