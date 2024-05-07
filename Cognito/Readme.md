@@ -1,3 +1,7 @@
+## To use cognito user pool for authorization with api gateway
+1. config in api to create new cognito authorizer, define scope for each api that we have
+2. we need to use pre-token-generation to change scope of the access token, and use that scope
+3. include access_token in Autorhization header whenever you calling api gateway
 ## To Use cognito dentity pool for role base access selection
 1. in api gateway we need to use IAM authorizer
 2. in amplify js library don't set Authorization header value in order to amplify will automatic sign request for us
