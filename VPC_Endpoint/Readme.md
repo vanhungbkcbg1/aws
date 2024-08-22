@@ -20,7 +20,7 @@ use to connect to other services
   - inside private instance we can use `aws cli` to connect to sqs  
        `aws sqs list-queues --region ap-northeast-1 --endpoint-url https://sqs.ap-northeast-1.amazonaws.com`
 ## Private Link
-allow connect to application service inside VPC
+allow private connection between application service inside VPC from other VPC
 ![private Link](./images/private_link.png)
 ### Setup
   - we need to have an internal network load balancer, and 1 private instance in VPC B
