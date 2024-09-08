@@ -20,3 +20,12 @@
 
 ## in case there is permission error with ECR please add this policy to the role which is being used to build image
 **EC2InstanceProfileForImageBuilderECRContainerBuilds**
+
+## Heath check for container
+heath check will run inside container so we need to install the command that we are going to use to run heath check command  
+in this example we need install curl when build docker image  
+here is the command that will be use to run heath check  
+in this example we will send all output and error to cloudwatch log, this is fixed in ecs
+````
+CMD-SHELL,curl -f http://localhost:3000 >> /proc/1/fd/1 2>&1  ||  exit 1
+````
